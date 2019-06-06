@@ -96,6 +96,7 @@
     </ApplicationDefinition>
     <Compile Include="Models\Column.cs" />
     <Compile Include="Models\Table.cs" />
+    <Compile Include="Utilities\FileLoader.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
