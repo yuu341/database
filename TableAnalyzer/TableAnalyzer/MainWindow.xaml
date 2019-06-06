@@ -1,12 +1,24 @@
-﻿<Window x:Class="TableAnalyzer.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TableAnalyzer"
+        xmlns:ViewModels="clr-namespace:TableAnalyzer.ViewModels" x:Class="TableAnalyzer.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <Window.DataContext>
+        <ViewModels:MainWindowViewModel/>
+    </Window.DataContext>
+    <StackPanel>
+        <StackPanel Orientation="Horizontal" Width="800">
+            <Label Width="100" HorizontalContentAlignment="Right" Content="Input:"/>
+            <TextBox Width="500" Text="{Binding InputFile.Value, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Width="800">
+            <Label Width="100" HorizontalContentAlignment="Right" Content="Output:"/>
+            <TextBox Width="500" Text="{Binding OutputFile.Value, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+        <Button Command="{Binding Analyze}" Content="解析"/>
+    </StackPanel>
 </Window>
