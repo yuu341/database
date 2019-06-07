@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TableAnalyzer.Utilities;
 
 namespace TableAnalyzer.ViewModels
 {
@@ -13,12 +14,16 @@ namespace TableAnalyzer.ViewModels
         public MainWindowViewModel()
         {
             Analyze.Subscribe(analyze);
-            InputFile.Value = @"C:\clud\input.xlsx";
-            OutputFile.Value = @"C:\clud\output.xlsx";
+            InputFile.Value = @"C:\crud\テーブル設計書.xlsm";
+            OutputFile.Value = @"C:\crud\output.xlsx";
+            loader = new FileLoader();
         }
+
+        private FileLoader loader;
 
         private void analyze()
         {
+            loader.Load(InputFile.Value);
         }
 
         /// <summary>

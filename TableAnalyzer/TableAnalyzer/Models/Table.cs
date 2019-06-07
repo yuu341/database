@@ -8,6 +8,13 @@ namespace TableAnalyzer.Models
 {
     class Table
     {
+
+        public Table(string name, string japaneseName)
+        {
+            this.Name = name;
+            this.JapaneseName = japaneseName;
+        }
+
         /// <summary>
         /// 英語名
         /// </summary>
@@ -21,6 +28,11 @@ namespace TableAnalyzer.Models
         /// <summary>
         /// 列名
         /// </summary>
-        public IList<Column> Columns { get; private set; }
+        public IList<Column> Columns { get; private set; } = new List<Column>();
+
+        public override string ToString()
+        {
+            return $"{JapaneseName}[{Name}]";
+        }
     }
 }
